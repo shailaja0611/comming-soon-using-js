@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coming Soon</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+    body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+        font-family: Arial, sans-serif;
+    }
+    .images{
+        background-image:url(image1.jpg);
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-size: cover;
+        position: absolute;
+        height: 400px;
+        width: 800px;
+    }
+         
+    .container {
+        text-align: center;
+    }
+    .container h1 {
+        font-size: 4rem;
+        color: #333;
+    }
+    .container p {
+        font-size: 1.5rem;
+        color:white;
+    }
+    .countdown {
+        display: flex;
+        justify-content: center;
+        gap: 10px;
+    }
+    .countdown div {
+        background: #fff;
+        padding: 20px;
+        border-radius: 5px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+    .countdown div span {
+        display: block;
+        font-size: 2rem;
+        color: #333;
+    }
+    .countdown div small {
+        display: block;
+        font-size: 1rem;
+        color: #666;
+    }
+    </style>
+</head>
+<body>
+    <div class="images">
+    <div class="container">
+        <h1>Coming Soon</h1>
+        <p>Our website is under construction. We'll be here soon with our new awesome site.</p>
+        <div class="countdown">
+            <div>
+                <span id="days">00</span>
+                <small>Days</small>
+            </div>
+            <div>
+                <span id="hours">00</span>
+                <small>Hours</small>
+            </div>
+            <div>
+                <span id="minutes">00</span>
+                <small>Minutes</small>
+            </div>
+            <div>
+                <span id="seconds">00</span>
+                <small>Seconds</small>
+            </div>
+        </div>
+    </div>
+    </div>
+    <script>
+        
+        var countDownDate = new Date("july 31, 2024 00:00:00").getTime();
+
+        
+        var x = setInterval(function() {
+
+    
+            var now = new Date().getTime();
+            
+            
+            var distance = countDownDate - now;
+            
+            
+            var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+            
+            
+            document.getElementById("days").innerHTML = days;
+            document.getElementById("hours").innerHTML = hours;
+            document.getElementById("minutes").innerHTML = minutes;
+            document.getElementById("seconds").innerHTML = seconds;
+            
+            
+            if (distance < 0) {
+                clearInterval(x);
+                document.querySelector(".countdown").innerHTML = "EXPIRED";
+            }
+        }, 1000);
+    </script>
+</body>
+</html>
